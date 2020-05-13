@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Main Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div align="center">
+    <a th:href="@{/logout}">Sign out</a>
+    <h1>Parties List</h1>
+    <a href="/newParty">Create New Party</a>
+    <br/><br/>
+    <table class="table table-striped" border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Party ID</th>
+            <th>Name</th>
+            <th>Artist Name</th>
+            <th>Place</th>
+            <th>Day of the Party</th>
+            <th>All Seats</th>
+            <th>Empty Seats</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="party : ${listParties}">
+            <td th:text="${party.id}">Party ID</td>
+            <td th:text="${party.name}">Name</td>
+            <td th:text="${party.nameartist}">ArtistName</td>
+            <td th:text="${party.place}">Place</td>
+            <td th:text="${party.dayparty}">dayParty</td>
+            <td th:text="${party.allseats}">allSeats</td>
+            <td th:text="${party.emptyseats}">emptySeats</td>
+            <td th:text="${party.price}">price</td>
+            <td>
+                <a th:href="@{'/editParty/' + ${party.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/deleteParty/' + ${party.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

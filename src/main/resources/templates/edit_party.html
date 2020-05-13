@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Party</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+
+</head>
+<body>
+<div align="center">
+    <h1>Edit Party</h1>
+    <br />
+    <form action="#" th:action="@{/saveParty}" th:object="${party}"
+          method="post">
+
+        <table class="table table-striped" border="0" cellpadding="10">
+            <tr>
+                <td>Party ID:</td>
+                <td>
+                    <input type="text" th:field="*{id}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Party Name:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td>Name of the Artist:</td>
+                <td><input type="text" th:field="*{nameartist}" /></td>
+            </tr>
+            <tr>
+                <td>Place:</td>
+                <td><input type="text" th:field="*{place}" /></td>
+            </tr>
+            <tr>
+                <td>Day of the Party:</td>
+                <td><input type="text" th:field="*{dayparty}" /></td>
+            </tr>
+            <tr>
+                <td>All Seats:</td>
+                <td><input type="text" th:field="*{allseats}" /></td>
+            </tr>
+            <tr>
+                <td>Empty Seats:</td>
+                <td><input type="text" th:field="*{emptyseats}" /></td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="text" th:field="*{price}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
